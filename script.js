@@ -11,15 +11,21 @@ var d = 100; // diameter
 var r = 0; // rotation
 var bodyColor = 200;
 var portholeColor = 0;
-
+var xSpeed = 2;
 function setup() {
   createCanvas(320, 240);
+  xSpeed = (5);
 }
 
 function draw() {
   // background is drawn first
   background(0, 0, 50); // deep blue
-  
+  x += xSpeed;
+  if(x > width || x < 0) {
+  //  x = 0; // wrap around
+  xSpeed *= -1;
+  }
+
   ufo(x, y, d, r); // call the ufo() function (see below)
   
   // add code here to change the ship location each frame
